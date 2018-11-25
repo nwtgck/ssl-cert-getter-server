@@ -6,6 +6,10 @@
 
 A Sever Getting SSL Certificate
 
+## Quick Start
+
+Access to <https://ssl-cert.glitch.me/?host=example.com> and get a JSON of SSL certificate info.
+
 ## Run Server 
 
 ### Way 1: Run server from source 
