@@ -1,5 +1,5 @@
 {
-    "name": "A Sever Getting SSL Certificate",
+    "name": "ssl-cert-getter-server",
     "description": "A Sever Getting SSL Certificate",
     "repository": "https://github.com/nwtgck/ssl-cert-getter-server",
     "keywords": [
