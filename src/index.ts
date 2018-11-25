@@ -1,5 +1,9 @@
-const https = require('https');
-const express = require('express');
+#!/usr/bin/env node
+// (from: https://qiita.com/takayukioda/items/a149bc2907ef77121229)
+
+import * as https from "https";
+import * as express from "express";
+import * as tls from "tls";
 
 // TODO: Hard code
 const httpPort = 8080;
@@ -41,12 +45,17 @@ app.get("/", (req, res)=>{
   console.log(host, port, method);
 });
 
-function getCertificate(options){
-  return new Promise((resolve, reject)=>{
+/**
+ * Get SLL certificate
+ * @param {{host: string; port: number; method: "GET"}} options
+ * @returns {Promise<"tls".PeerCertificate>}
+ */
+function getCertificate(options: {host: string, port: number, method: "GET"}): Promise<tls.PeerCertificate>{
+  return new Promise<tls.PeerCertificate>((resolve, reject)=>{
     // Create request
     const req = https.request(options, function(res) {
       // Get certificate
-      const cert = res.connection.getPeerCertificate();
+      const cert = (res.connection as tls.TLSSocket).getPeerCertificate();
       // Resolve with the certificate
       resolve(cert);
       // Destroy connection
