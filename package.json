@@ -1,6 +1,6 @@
 {
   "name": "ssl-cert-getter-server",
-  "version": "0.1.0-SNAPSHOT",
+  "version": "0.1.0",
   "description": "Server Getting SSL Certificate",
   "main": "dist/src/index.js",
   "scripts": {
