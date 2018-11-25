@@ -1,6 +1,6 @@
 {
   "name": "ssl-cert-getter-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Server Getting SSL Certificate",
   "main": "dist/src/index.js",
   "scripts": {
@@ -8,6 +8,15 @@
     "start": "npm run build && node dist/src/index.js",
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "http",
+    "ssl-certificate",
+    "server"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nwtgck/ssl-cert-getter-server"
   },
   "author": "Ryo Ota <nwtgck@gmail.com> (https://github.com/nwtgck)",
   "license": "MIT",
