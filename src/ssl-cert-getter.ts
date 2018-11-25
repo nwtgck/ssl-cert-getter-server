@@ -43,7 +43,8 @@ function getCertificate(host: string, port: number): Promise<tls.PeerCertificate
     port: port,
     method: "GET",
     // (from: https://stackoverflow.com/a/11042814/2885946)
-    rejectUnauthorized: false
+    rejectUnauthorized: false,
+    agent: false
   };
   return new Promise<tls.PeerCertificate>((resolve, reject)=>{
     // Create request
