@@ -41,7 +41,9 @@ function getCertificate(host: string, port: number): Promise<tls.PeerCertificate
   const options = {
     host: host,
     port: port,
-    method: "GET"
+    method: "GET",
+    // (from: https://stackoverflow.com/a/11042814/2885946)
+    rejectUnauthorized: false
   };
   return new Promise<tls.PeerCertificate>((resolve, reject)=>{
     // Create request
