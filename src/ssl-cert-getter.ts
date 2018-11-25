@@ -11,23 +11,19 @@ app.get("/", (req, res)=>{
   console.log(req.query);
   if (host === undefined) {
     res.writeHead(400);
-    res.write(`Error: query parameter 'host' should be specified.\n`);
-    res.end("e.g) /?host=example.com&port=443&method=GET");
+    res.write(`Error: Query parameter 'host' is required.\n`);
+    res.write("e.g) /?host=example.com\n");
+    res.write("e.g) /?host=example.com&port=443\n");
+    res.end();
   } else {
-    // Create an option
-    const options = {
-      host: host,
-      port: port,
-      method: method
-    };
     (async()=>{
       try {
         // Get certificate
-        const cert = await getCertificate(options);
+        const cert = await getCertificate(host, port);
         // Return the cert JSON
         res.json(cert);
       } catch (err) {
-        res.end(`Some error with ${JSON.stringify(options)}\n`);
+        res.end(`Some error where host=${host}, port=${port}\n`);
       }
     })();
   }
@@ -36,10 +32,17 @@ app.get("/", (req, res)=>{
 
 /**
  * Get SLL certificate
- * @param {{host: string; port: number; method: "GET"}} options
  * @returns {Promise<"tls".PeerCertificate>}
+ * @param host
+ * @param port
  */
-function getCertificate(options: {host: string, port: number, method: "GET"}): Promise<tls.PeerCertificate>{
+function getCertificate(host: string, port: number): Promise<tls.PeerCertificate>{
+  // Create an option
+  const options = {
+    host: host,
+    port: port,
+    method: "GET"
+  };
   return new Promise<tls.PeerCertificate>((resolve, reject)=>{
     // Create request
     const req = https.request(options, function(res) {
