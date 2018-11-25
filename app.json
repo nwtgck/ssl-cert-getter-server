@@ -1,0 +1,10 @@
+{
+    "name": "A Sever Getting SSL Certificate",
+    "description": "A Sever Getting SSL Certificate",
+    "repository": "https://github.com/nwtgck/ssl-cert-getter-server",
+    "keywords": [
+        "http",
+        "ssl-certificate",
+        "server"
+    ]
+}
