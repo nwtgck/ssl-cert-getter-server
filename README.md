@@ -6,6 +6,10 @@
 
 A Sever Getting SSL Certificate
 
+![A Server Getting SSL Certificate](demo-images/ssl-cert-getter-server.gif)  
+
+Response returned in Chrome Chrome is formated by [JSONView](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc), a Chrome Extension. You can get information about the certificate of example.com:443, which contains expire date and etc.
+
 ## Quick Start
 
 Access to <https://ssl-cert.glitch.me/?host=example.com> and get a JSON of SSL certificate info.
