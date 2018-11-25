@@ -20,3 +20,9 @@ const httpPort: number = args["http-port"];
 const server = app.listen(httpPort, ()=>{
   console.log(`Listening on ${httpPort}...`);
 });
+
+
+// Not to down whole server
+process.on('uncaughtException', function (err) {
+  console.error('on uncaughtException: ', err);
+});
